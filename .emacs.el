@@ -84,12 +84,14 @@
 
 
 ;; Ocaml
+;; https://github.com/ocaml/tuareg
 (load "/home/scinfo/tharada/.emacs.d/tuareg/tuareg-site-file")
 
 ;; Scheme
 (require 'xscheme)
 
 ;; Haskell
+;; https://github.com/haskell/haskell-mode
 (add-to-list 'load-path "~/.emacs.d/haskell-mode/")
 (require 'haskell-mode-autoloads)
 (add-to-list 'Info-default-directory-list "~/.emacs.d/haskell-mode/")
