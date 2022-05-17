@@ -40,15 +40,30 @@ vars m = (nub . vars') m
     vars' (Abs x m) = x : (vars' m)
 
 -- free variables in M
+-- fv :: LT -> [Var]
+-- fv m = nub (fv' m [])
+--   where
+--     fv' :: LT -> [Var] -> [Var]
+--     fv' (A x) zs
+--       | elem x zs = []
+--       | otherwise = [x]
+--     fv' (App m n) zs = (fv' m zs) ++ (fv' n zs)
+--     fv' (Abs x m) zs = (fv' m (x:zs)) 
+
 fv :: LT -> [Var]
-fv m = nub (fv' m [])
-  where
-    fv' :: LT -> [Var] -> [Var]
-    fv' (A x) zs
-      | elem x zs = []
-      | otherwise = [x]
-    fv' (App m n) zs = (fv' m zs) ++ (fv' n zs)
-    fv' (Abs x m) zs = (fv' m (x:zs)) 
+fv t = (nub . fv') t
+
+fv' :: LT -> [Var]
+fv' (A x) = [x]
+fv' (App m n) = (fv m) ++ (fv n)
+fv' (Abs x m) = del x (fv m)
+
+del :: Eq a => a -> [a] -> [a]
+del _ [] = []
+del x (a:as)
+  | x == a = del x as
+  | otherwise = a : (del x as)
+
 
 -- first variable not in the given term
 fstvnin :: LT -> Var
