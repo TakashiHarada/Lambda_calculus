@@ -99,7 +99,7 @@ lmbContruct (App m n)
   | otherwise = App m (lmbContruct n)
 
 -- WARNING!! The following function may cause an infinite loop.
-lmbReduce :: LT -> LT
-lmbReduce m
-  | [] /= getBetaRedex m = lmbReduce (lmbContruct m)
+lmReduce :: LT -> LT
+lmReduce m
+  | [] /= getBetaRedex m = lmReduce (lmbContruct m)
   | otherwise = m
