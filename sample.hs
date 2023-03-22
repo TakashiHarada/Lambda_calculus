@@ -1,4 +1,4 @@
--- Put sample.hs and Lambda.hs in a same direcoty.
+-- Put sample.hs and Lambda.hs in the same direcoty.
 import Lambda
 
 f = vs !! 5
