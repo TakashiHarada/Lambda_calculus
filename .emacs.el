@@ -1,18 +1,5 @@
 (setq debug-on-error t)
 
-;; trr
-
-(setq load-path (cons "/home/scinfo/tharada/.emacs.d/trr/" load-path))
-(autoload 'trr "/home/scinfo/tharada/.emacs.d/trr/trr" nil t)
-
-(setq load-path (cons "/home/scinfo/tharada/usr/share/emacs/site-lisp/mew/" load-path))
-(autoload 'mew "/home/scinfo/tharada/usr/share/emacs/site-lisp/mew/mew" nil t)
-
-(setq epa-pinentry-mode 'loopback)
-
-;; mew
-(setq mew-prog-ssl-arg "fips=no\n")
-
 ;; 起動画面表示時間の短縮／削除
 (setq inhibit-startup-message t)
 
