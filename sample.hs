@@ -11,7 +11,6 @@ x = vs !! 23
 y = vs !! 24
 z = vs !! 25
 
--- Question 3 in Homework 8
 xx = App (A x) (A x)
 lx_xx = Abs x xx
 ly_y = Abs y (A y)
